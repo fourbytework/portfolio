@@ -36,13 +36,13 @@ const Contact = () => {
     const whatsappNumber = '8758592615';
 
     // Format neat WhatsApp Message string
-    const messageText = ` *New Inquiry For FourBytes Studio*
+    const messageText = `*New Inquiry For FourBytes Studio*
 ━━━━━━━━━━━━━━━━━━━━
- *Name:* ${formData.name}
- *Phone:* ${formData.phone}
- *Email:* ${formData.email}
- *Service Required:* ${formData.service}
- *Message:* ${formData.message || 'Looking forward to discussing our project details!'}
+*Name:* ${formData.name}
+*Phone:* ${formData.phone}
+*Email:* ${formData.email}
+*Service Required:* ${formData.service}
+*Message:* ${formData.message || 'Looking forward to discussing our project details!'}
 ━━━━━━━━━━━━━━━━━━━━`;
 
     const encodedMessage = encodeURIComponent(messageText);
