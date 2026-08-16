@@ -1,0 +1,504 @@
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  padding: 18px 0;
+
+  background: rgba(255, 250, 246, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(132, 72, 108, 0.08);
+
+  transition:
+    padding 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   SCROLLED NAVBAR
+========================================================= */
+
+.navbar-header.scrolled {
+  padding: 11px 0;
+
+  background: rgba(255, 250, 246, 0.98);
+
+  box-shadow: 0 8px 25px rgba(132, 72, 108, 0.08);
+
+  border-bottom-color: rgba(132, 72, 108, 0.12);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.navbar-container {
+  width: min(1200px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.navbar-logo {
+  flex-shrink: 0;
+
+  width: 210px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0;
+  margin: 0;
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.logo-img {
+  display: block;
+
+  width: 210px !important;
+  max-width: 210px !important;
+
+  height: auto !important;
+  max-height: 55px;
+
+  object-fit: contain;
+
+  border-radius: 0;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 28px;
+
+  flex: 1;
+}
+
+.nav-link {
+  position: relative;
+
+  padding: 7px 0;
+
+  background: transparent;
+  border: none;
+
+  color: var(--text-dark);
+
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-primary);
+}
+
+.nav-link::after {
+  content: '';
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--accent-primary);
+
+  border-radius: 10px;
+
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.navbar-actions {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   GET QUOTE BUTTON
+========================================================= */
+
+.cta-button {
+  min-height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 0 24px;
+
+  border: none;
+  border-radius: 50px;
+
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    #673153
+  );
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 0.94rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 20px rgba(132, 72, 108, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 11px 28px rgba(132, 72, 108, 0.32);
+
+  background: linear-gradient(
+    135deg,
+    #6c3857,
+    #532341
+  );
+}
+
+.cta-button svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MOBILE TOGGLE
+========================================================= */
+
+.mobile-toggle {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: var(--accent-primary);
+
+  cursor: pointer;
+}
+
+.mobile-toggle:hover {
+  background: rgba(132, 72, 108, 0.08);
+}
+
+
+/* =========================================================
+   MOBILE DRAWER
+========================================================= */
+
+.mobile-nav-drawer {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  background: rgba(255, 250, 246, 0.98);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid var(--border-color);
+
+  box-shadow:
+    0 15px 35px rgba(132, 72, 108, 0.12);
+
+  transform: translateY(-15px);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.mobile-nav-drawer.open {
+  transform: translateY(0);
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   MOBILE LINKS
+========================================================= */
+
+.mobile-link {
+  width: 100%;
+
+  padding: 13px 5px;
+
+  text-align: left;
+
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(132, 72, 108, 0.08);
+
+  color: var(--text-dark);
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.mobile-link:hover {
+  padding-left: 10px;
+
+  color: var(--accent-primary);
+}
+
+
+/* =========================================================
+   MOBILE CTA
+========================================================= */
+
+.mobile-cta-button {
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: var(--accent-primary);
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.mobile-cta-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 20px rgba(132, 72, 108, 0.2);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .navbar-container {
+    width: min(100% - 32px, 1000px);
+
+    gap: 20px;
+  }
+
+  .navbar-logo {
+    width: 180px;
+    height: 48px;
+  }
+
+  .logo-img {
+    width: 180px !important;
+    max-width: 180px !important;
+    max-height: 48px;
+  }
+
+  .desktop-nav {
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 0.92rem;
+  }
+
+  .cta-button {
+    padding: 0 19px;
+    min-height: 46px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE / TABLET MENU
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .navbar-header {
+    padding: 14px 0;
+  }
+
+  .navbar-header.scrolled {
+    padding: 10px 0;
+  }
+
+  .navbar-container {
+    width: calc(100% - 32px);
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .cta-button {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .navbar-logo {
+    width: 170px;
+    height: 45px;
+  }
+
+  .logo-img {
+    width: 170px !important;
+    max-width: 170px !important;
+    max-height: 45px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .navbar-container {
+    width: calc(100% - 24px);
+  }
+
+  .navbar-logo {
+    width: 145px;
+    height: 40px;
+  }
+
+  .logo-img {
+    width: 145px !important;
+    max-width: 145px !important;
+    max-height: 40px;
+  }
+
+  .mobile-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-nav-drawer {
+    padding: 16px;
+  }
+}
